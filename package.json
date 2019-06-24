@@ -1,0 +1,22 @@
+{
+  "name": "rxjs-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ong-ar/rxjs-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ong-ar/rxjs-practice/issues"
+  },
+  "homepage": "https://github.com/ong-ar/rxjs-practice#readme",
+  "dependencies": {
+    "rxjs": "^6.5.2"
+  }
+}

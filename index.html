@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      rxjs practice
+    </title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/@reactivex/rxjs@5.5.12/dist/global/Rx.js"></script>
+    <script>
+      var observable = Rx.Observable.interval(1000);
+      var observer = {
+        next: function(value) {
+          console.log(value);
+        },
+        error: function(error) {
+          console.log(error);
+        },
+        complete: function() {
+          console.log("completed");
+        }
+      };
+      observable.subscribe(observer);
+    </script>
+  </body>
+</html>

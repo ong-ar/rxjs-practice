@@ -14,10 +14,12 @@ const observer = {
   }
 };
 
-rxjs.Observable.create(function(obs) {
+const subscription = rxjs.Observable.create(function(obs) {
   obs.next("A value");
   setTimeout(() => {}, 1000);
   obs.next("B value");
   // obs.error("error");
   obs.complete();
 }).subscribe(observer);
+
+subscription.unsubscribe();

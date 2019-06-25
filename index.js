@@ -1,22 +1,19 @@
 const rxjs = require("rxjs");
 
-const Observable = rxjs.Observable;
+// observable, observer, subscription
 
-const observable = new Observable(function subscribe(subscriber) {
-  // Keep track of the interval resource
-  const intervalId = setInterval(() => {
-    subscriber.next("hi");
-  }, 1000);
+const observer = {
+  next: function(value) {
+    console.log(value);
+  },
+  error: function(error) {
+    console.log(error);
+  },
+  complete: function() {
+    console.log("completed");
+  }
+};
 
-  // Provide a way of canceling and disposing the interval resource
-  return function unsubscribe() {
-    console.log("unsubscribe");
-    clearInterval(intervalId);
-  };
-});
-
-const subscribe = observable.subscribe(x => console.log(x));
-
-setTimeout(() => {
-  subscribe.unsubscribe();
-}, 5000);
+rxjs.Observable.create(function(obs) {
+  obs.next("A value");
+}).subscribe(observer);

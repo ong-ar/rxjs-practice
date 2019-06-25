@@ -20,7 +20,11 @@
           console.log("completed");
         }
       };
-      observable.subscribe(observer);
+      var subscription = observable.map(v => v * 2).subscribe(observer);
+
+      setTimeout(() => {
+        subscription.unsubscribe();
+      }, 5000);
     </script>
   </body>
 </html>

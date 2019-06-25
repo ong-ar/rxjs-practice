@@ -6,6 +6,7 @@
     </title>
   </head>
   <body>
+    <input type="text" />
     <script src="https://unpkg.com/@reactivex/rxjs@5.5.12/dist/global/Rx.js"></script>
     <script>
       var observable = Rx.Observable.interval(1000);
@@ -52,6 +53,20 @@
       });
 
       subject.next("abc");
+
+      // pluck, debounceTime, distinctUntilChanged
+      var input = document.querySelector("input");
+      var observableInput = Rx.Observable.fromEvent(input, "input");
+
+      observableInput
+        .pluck("target", "value")
+        .debounceTime(500)
+        .distinctUntilChanged()
+        .subscribe({
+          next: function(value) {
+            console.log(value);
+          }
+        });
     </script>
   </body>
 </html>

@@ -25,9 +25,33 @@
         .throttleTime(1500)
         .subscribe(observer);
 
-      // setTimeout(() => {
-      //   subscription.unsubscribe();
-      // }, 5000);
+      setTimeout(() => {
+        subscription.unsubscribe();
+      }, 5000);
+
+      // subject
+
+      var subject = new Rx.Subject();
+
+      subject.subscribe({
+        next: function(value) {
+          console.log(value);
+        },
+        error: function(error) {
+          console.log(error);
+        },
+        complete: function() {
+          console.log("completed");
+        }
+      });
+
+      subject.subscribe({
+        next: function(value) {
+          console.log(value);
+        }
+      });
+
+      subject.next("abc");
     </script>
   </body>
 </html>
